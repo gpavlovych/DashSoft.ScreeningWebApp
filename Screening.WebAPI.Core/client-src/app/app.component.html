@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- Brand and toggle get grouped for better mobile display -->
+<nav *ngIf="navbarService.visible" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Screening App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngIf="authenticationService.getLoggedInUser()">
+                <a class="nav-link" href="#">View as: {{authenticationService.getLoggedInUser().roleName}} <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-nav-right">
+            <li class="nav-item" *ngIf="authenticationService.getLoggedInUser()">
+                <a class="nav-link" href="#">Hello, {{authenticationService.getLoggedInUser().username}}!</a>
+            </li>
+            <li class="nav-item" *ngIf="authenticationService.getLoggedInUser()">
+                <a class="nav-link" routerLink="/login">Logout</a>
+            </li>
+            <li class="nav-item" *ngIf="!authenticationService.getLoggedInUser()">
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<app-alert></app-alert>
+<router-outlet></router-outlet>

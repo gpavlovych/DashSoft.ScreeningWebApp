@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="../../assets/images/avatar_2x.png"/>
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="email" name="username" id="inputEmail" class="form-control" placeholder="User Name" required autofocus [(ngModel)]="username">
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="password">
+            <input type="password" name="confirmPassword" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required [(ngModel)]="confirmPassword">
+            <select class="form-control" id="role" name="role" required [(ngModel)]="role">
+                <option value="student">Student</option>
+                <option value="parent">Parent</option>
+            </select>
+            <br>
+            <button (click)="register()">Sign up</button>
+        </form>
+    </div>
+</div>
